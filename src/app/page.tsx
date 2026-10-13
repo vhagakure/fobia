@@ -1,0 +1,341 @@
+import Image from "next/image";
+import type { CSSProperties } from "react";
+import { event } from "@/lib/event";
+import { Action } from "@/components/action";
+import { Tickets } from "@/components/tickets";
+import { Arrow } from "@/components/arrow";
+import { CroppedArtwork } from "@/components/cropped-artwork";
+import { PartnerLogos } from "@/components/partner-logos";
+function Artwork({
+  src,
+  alt,
+  className = "",
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+}) {
+  return src ? (
+    <div className={`artwork ${className}`}>
+      <Image
+        src={src}
+        alt={alt}
+        width={1024}
+        height={1280}
+        sizes="(max-width: 700px) 100vw, 50vw"
+      />
+    </div>
+  ) : null;
+}
+export default function Home() {
+  return (
+    <main>
+      <a className="skip-link" href="#experiences">
+        Vai alle esperienze
+      </a>
+      <div className="partners-top" aria-label="Partner dell’evento">
+        <PartnerLogos priority />
+      </div>
+      <header className="site-header">
+        <a href="#" className="wordmark" aria-label="FOBIA, inizio pagina">
+          F / P
+        </a>
+        <span>{event.date}</span>
+        <a href="#tickets">
+          ENTER FOBIA <Arrow />
+        </a>
+      </header>
+      <section
+        className={`hero ${event.artwork.hero ? "has-artwork" : ""}`}
+        aria-labelledby="hero-title"
+      >
+        <div className="hero-meta">
+          <span>HALLOWEEN / PIETRASOLE</span>
+          <span>EDIZIONE 2026</span>
+        </div>
+        {event.artwork.hero ? (
+          <div className="hero-artwork">
+            <CroppedArtwork
+              src={event.artwork.hero}
+              crop={event.artworkCrops.hero}
+              alt="FOBIA PIETRASOLE, titolo ufficiale con gli occhi spaventati"
+              multiply
+              priority
+            />
+            <p>{event.payoff}</p>
+          </div>
+        ) : (
+          <div className="hero-title">
+            <span className="hero-kicker">{event.date} · ONE NIGHT ONLY</span>
+            <h1 id="hero-title">
+              FOBIA<span>PIETRASOLE</span>
+            </h1>
+            <div className="poster-rule">
+              <span aria-hidden="true">✦</span>
+            </div>
+            <p>{event.payoff}</p>
+          </div>
+        )}
+        {event.artwork.hero && (
+          <h1 id="hero-title" className="sr-only">
+            FOBIA PIETRASOLE — Una notte dentro le tue paure.
+          </h1>
+        )}
+        <div className="hero-bottom">
+          <p>
+            {event.date}
+            <br />
+            <span>{event.location}</span>
+          </p>
+          <div className="hero-actions">
+            <a className="action dark" href="#experiences">
+              SCOPRI LA NOTTE <span>↓</span>
+            </a>
+            <a className="text-link" href="#tickets">
+              ACQUISTA TICKET <Arrow />
+            </a>
+          </div>
+        </div>
+        <div className="hero-foot">
+          <span>21:00 DINNER / 23:00 PARTY</span>
+          <span>SCROLL TO FEEL ↓</span>
+        </div>
+      </section>
+      <section className="section intro">
+        <span className="eyebrow">IL CONFINE È DENTRO DI TE.</span>
+        <h2>
+          UNA NOTTE.
+          <br />
+          DUE ESPERIENZE.
+          <br />
+          <span>SEI PAURE.</span>
+          <br />
+          UN SOLO LUOGO.
+        </h2>
+        <CroppedArtwork
+          src={event.artwork.location}
+          crop={event.artworkCrops.location}
+          alt="Visual ufficiale della Masseria Pietrasole"
+          className="intro-location"
+        />
+      </section>
+      <section id="experiences" className="section experiences">
+        <div className="section-top">
+          <span className="eyebrow">01 / SCEGLI COME ENTRARE</span>
+          <span aria-hidden="true">✦</span>
+        </div>
+        <a className="experience-row" href="#dinner">
+          <span className="eyebrow">
+            {event.dinner.start} / {event.copy.dinnerFormat}
+          </span>
+          <h2>{event.copy.dinnerLabel}</h2>
+          <span className="experience-summary">
+            6 portate. 6 paure. €{event.dinner.price} p.p.
+          </span>
+          <span className="experience-arrow">
+            <Arrow />
+          </span>
+        </a>
+        <a className="experience-row" href="#party">
+          <span className="eyebrow">23:00 / LA METAMORFOSI</span>
+          <h2>
+            HALLOWEEN
+            <br />
+            PARTY
+          </h2>
+          <span className="experience-summary">{event.copy.partySummary}</span>
+          <span className="experience-arrow">
+            <Arrow />
+          </span>
+        </a>
+        <p className="fine-print">{event.copy.dinnerIncludesParty}</p>
+      </section>
+      <section id="dinner" className="section dinner">
+        <div className="section-top">
+          <span className="eyebrow">02 / {event.copy.dinnerLabel}</span>
+          <span className="eyebrow">START {event.dinner.start}</span>
+        </div>
+        <div className="dinner-heading">
+          <h2 className="display">
+            NŌH<span>EXPERIENCE</span>
+          </h2>
+          <p>
+            6 PORTATE.
+            <br />6 PAURE.
+          </p>
+        </div>
+        <div className="dinner-grid">
+          <Artwork
+            src={event.artwork.dinner}
+            alt="Manifesto ufficiale NŌH Experience"
+          />
+          <div>
+            <p className="dinner-copy">
+              Un percorso gastronomico costruito intorno a sei differenti fobie.
+              La paura prende posto a tavola.
+            </p>
+            <div className="dinner-price">
+              <strong>€{event.dinner.price}</strong>
+              <span>
+                P.P.
+                <br />
+                VINI ESCLUSI
+              </span>
+            </div>
+            <p className="fine-print">{event.copy.dinnerIncludesParty}</p>
+            <Action href={event.dinnerUrl} className="dark">
+              PRENOTA LA DINNER EXPERIENCE
+            </Action>
+          </div>
+        </div>
+        <div className="menu-top">
+          <span className="eyebrow">IL MENU / SEI ATTI</span>
+          <span aria-hidden="true">✦</span>
+        </div>
+        <div className="menu">
+          {event.dinner.menu.map((item, i) => (
+            <div className="menu-item" key={item.fear}>
+              <span className="menu-number">0{i + 1}</span>
+              <div>
+                <h3>{item.fear}</h3>
+                <p>{item.dish}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section
+        id="party"
+        className={`section party ${event.artwork.party ? "has-party-artwork" : ""}`}
+        style={
+          {
+            "--party-desktop-position":
+              event.party.artworkStyle.desktopPosition,
+            "--party-mobile-position": event.party.artworkStyle.mobilePosition,
+            "--party-artwork-opacity": event.party.artworkStyle.opacity,
+          } as CSSProperties
+        }
+      >
+        {event.artwork.party && (
+          <div className="party-backdrop" aria-hidden="true">
+            <Image
+              src={event.artwork.party}
+              alt=""
+              fill
+              sizes="(max-width: 700px) 100vw, 70vw"
+            />
+          </div>
+        )}
+        <div className="section-top">
+          <span className="eyebrow">03 / DOPO IL RITUALE</span>
+          <span className="eyebrow">START {event.party.start}</span>
+        </div>
+        <h2 className="display">
+          HALLOWEEN
+          <br />
+          <span className="outline">PARTY.</span>
+        </h2>
+        <div className="party-grid">
+          <div>
+            <p className="party-copy">
+              Quando finisce la cena,
+              <br />
+              FOBIA cambia forma.
+            </p>
+            <p>{event.copy.partySummary.toUpperCase()}</p>
+            <a className="action" href="#tickets">
+              ACQUISTA IL TUO PASS <Arrow />
+            </a>
+          </div>
+        </div>
+      </section>
+      <Tickets />
+      <section id="tables" className="section tables">
+        <div className="section-top">
+          <span className="eyebrow">05 / HALLOWEEN PARTY · BOTTLE SERVICE</span>
+          <span aria-hidden="true">✦</span>
+        </div>
+        <h2 className="display">
+          TABLE
+          <br />
+          EXPERIENCE.
+        </h2>
+        <div className="table-list">
+          {event.tables.map((table, i) => (
+            <article className="table-package" key={table.id}>
+              <span className="eyebrow">
+                0{i + 1} / {table.availability || "PRIVÉE"}
+              </span>
+              <h3>{table.name}</h3>
+              <p>{table.description}</p>
+              <div className="table-spend">
+                <strong>€{table.minimum}</strong>
+                <span>
+                  MINIMUM
+                  <br />
+                  SPEND
+                </span>
+              </div>
+              <p>{table.entries}</p>
+              {table.extra && <p>{table.extra}</p>}
+              <p className="deposit">ACCONTO €{table.deposit}</p>
+              <Action href={table.url} className="dark">
+                {table.cta}
+              </Action>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section id="location" className="section location">
+        <div className="section-top">
+          <span className="eyebrow">06 / UN SOLO LUOGO</span>
+          <span>{event.date}</span>
+        </div>
+        <h2 className="display">
+          MASSERIA
+          <br />
+          PIETRASOLE.
+        </h2>
+        <div className="location-bottom">
+          <p>{event.copy.address}</p>
+          <Action
+            href={event.mapsUrl}
+            pending="Le indicazioni per raggiungere la location saranno disponibili a breve."
+          >
+            {event.copy.directionsLabel}
+          </Action>
+        </div>
+      </section>
+      <section className="section finale">
+        <span className="eyebrow">{event.date} / PIETRASOLE</span>
+        <h2>
+          QUAL È<br />
+          LA TUA
+          <br />
+          <span>FOBIA?</span>
+        </h2>
+        <a className="action dark" href="#tickets">
+          ENTER FOBIA <Arrow />
+        </a>
+        <p>{event.payoff}</p>
+      </section>
+      <section className="production-credits" aria-labelledby="producers-title">
+        <h2 id="producers-title">{event.copy.producersLabel}</h2>
+        <PartnerLogos />
+      </section>
+      <footer>
+        <span>
+          {event.name} © {new Date(event.dateISO).getFullYear()}
+        </span>
+        {event.partners.length === 0 && (
+          <p className="partner-credit">
+            UN EVENTO DI
+            <br />
+            <span>CAMBÈ · NŌH · HAGAKURE · YUPPIES</span>
+          </p>
+        )}
+        <a href="#">TORNA SU ↑</a>
+      </footer>
+    </main>
+  );
+}
