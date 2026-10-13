@@ -1,0 +1,4 @@
+:HL["/fobia/_next/static/chunks/0umtv9qkq78b8.css","style"]
+:HL["/fobia/_next/static/media/bodoni_moda_latin_900_normal-s.p.3e7478h8qagkd.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+1:[["children",{"s":"__PAGE__","h":160}]]
+0:{"b":"0Tk56h50vQiXwLyvKA9AR","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
