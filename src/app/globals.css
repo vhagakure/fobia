@@ -1505,3 +1505,15 @@ dialog:not([open]) {
     background: linear-gradient(90deg, var(--ink) 0%, rgba(16,14,13,.55) 30%, rgba(16,14,13,.08) 70%), linear-gradient(180deg, var(--ink) 0%, transparent 18%, transparent 60%, var(--ink) 100%);
   }
 }
+
+/* Connect the intro copy to the original photograph's dark upper edge. */
+.intro { isolation: isolate; }
+.intro-copy { position: relative; z-index: 1; }
+.intro-location { margin-top: calc(clamp(100px, 15vw, 210px) * -1); }
+.intro-location::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, var(--ink) 0%, rgba(16,14,13,.85) 18%, rgba(16,14,13,.25) 42%, transparent 65%);
+}

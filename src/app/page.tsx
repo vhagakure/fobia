@@ -150,9 +150,11 @@ export default function Home() {
         </div>
       </section>
       <section className="section intro">
-        <h2>{event.copy.introTitle}</h2>
-        <p className="intro-format">{event.copy.introFormat}</p>
-        <p className="intro-description">{event.copy.introDescription}</p>
+        <div className="intro-copy">
+          <h2>{event.copy.introTitle}</h2>
+          <p className="intro-format">{event.copy.introFormat}</p>
+          <p className="intro-description">{event.copy.introDescription}</p>
+        </div>
         <CroppedArtwork
           src={event.artwork.location}
           crop={event.artworkCrops.location}
