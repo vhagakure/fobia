@@ -37,21 +37,15 @@ for (const width of [320, 390, 768, 1440]) {
       });
   });
 }
-test("missing reservation URL shows accessible dialog, Escape closes it", async ({
-  page,
-}) => {
+test("party CTAs open the supplied XCEED offer", async ({ page }) => {
   await page.goto("/", { waitUntil: "networkidle" });
-  const trigger = page.getByRole("button", {
-    name: "GET TICKET ON XCEED",
-  });
-  await trigger.click();
-  await expect(page.getByRole("dialog")).toBeVisible();
-  await expect(page.getByRole("dialog")).toContainText(
-    "Le prenotazioni saranno disponibili a breve.",
-  );
-  await page.keyboard.press("Escape");
-  await expect(page.getByRole("dialog")).not.toBeVisible();
-  await expect(trigger).toBeFocused();
+  for (const link of [
+    page.getByRole("link", { name: "GET TICKET ON XCEED" }),
+    page.locator(".sticky-ticket .sticky-party"),
+  ]) {
+    await expect(link).toHaveAttribute("href", event.xceedUrl);
+    await expect(link).toHaveAttribute("target", "_blank");
+  }
 });
 test("metadata and reduced motion", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });

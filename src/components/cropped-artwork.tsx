@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "@/lib/assets";
 import type { CSSProperties } from "react";
 export type ArtworkCrop = {
   sourceWidth: number;
@@ -34,7 +35,7 @@ export function CroppedArtwork({
   return (
     <div className={`cropped-artwork ${className}`} style={style}>
       <Image
-        src={src}
+        src={assetPath(src)}
         alt={alt}
         width={crop.sourceWidth}
         height={crop.sourceHeight}

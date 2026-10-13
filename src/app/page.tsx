@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
 import { event } from "@/lib/event";
+import { assetPath } from "@/lib/assets";
 import { Action } from "@/components/action";
 import { Tickets } from "@/components/tickets";
 import { Arrow } from "@/components/arrow";
@@ -133,7 +134,12 @@ export default function Home() {
             <a className="action dark" href="#experiences">
               SCOPRI LA NOTTE <span>↓</span>
             </a>
-            <a className="text-link" href="#tickets">
+            <a
+              className="text-link"
+              href={event.xceedUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               ACQUISTA TICKET <Arrow />
             </a>
           </div>
@@ -209,7 +215,7 @@ export default function Home() {
           {event.artwork.dinner && (
             <div className="dinner-backdrop" aria-hidden="true">
               <Image
-                src={event.artwork.dinner}
+                src={assetPath(event.artwork.dinner)}
                 alt=""
                 fill
                 sizes="(max-width: 700px) 100vw, 75vw"
@@ -283,7 +289,7 @@ export default function Home() {
         {event.artwork.party && (
           <div className="party-backdrop" aria-hidden="true">
             <Image
-              src={event.artwork.party}
+              src={assetPath(event.artwork.party)}
               alt=""
               fill
               sizes="(max-width: 700px) 100vw, 70vw"
@@ -307,9 +313,7 @@ export default function Home() {
               FOBIA cambia forma.
             </p>
             <p>{event.copy.partySummary.toUpperCase()}</p>
-            <a className="action" href="#tickets">
-              ACQUISTA IL TUO PASS <Arrow />
-            </a>
+            <Action href={event.xceedUrl}>ACQUISTA IL TUO PASS</Action>
           </div>
         </div>
       </section>

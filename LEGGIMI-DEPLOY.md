@@ -29,18 +29,18 @@ Caricare il codice della cartella `fobia` nel repository gestito dal programmato
 
 Configurare il dominio effettivo in `src/lib/event.ts`, poi eseguire il deployment. Non sono presenti token o credenziali nel pacchetto. Il codice nel pacchetto è completo; non si deve presumere che sia già pubblicato nel repository GitHub indicato in package.json.
 
-In alternativa è possibile usare un hosting che supporta un processo Node/Next.js, con HTTPS e proxy verso la porta dell’app. La build `.next` viene generata sul server; non è inclusa nello ZIP. Questo progetto usa l’ottimizzazione immagini di Next.js e va pubblicato come applicazione Next.js.
+In alternativa è possibile usare un hosting che supporta un processo Node/Next.js, con HTTPS e proxy verso la porta dell’app. La build `.next` viene generata sul server; non è inclusa nello ZIP. Il deploy Node/Vercel usa l’ottimizzazione immagini Next.js. È disponibile anche la build statica per GitHub Pages descritta sotto.
 
 ## Da configurare prima della pubblicazione
 
 Unico file per contenuti e collegamenti: **src/lib/event.ts**.
 
 - `siteUrl`: origine HTTPS reale del sito, per canonical e URL assoluti Open Graph/Twitter. Finché vuota, Next.js usa localhost per le immagini social durante la build.
-- `xceedUrl`: URL reale del checkout Party. Può essere usato per tutte le release.
+- `xceedUrl`: già impostato al checkout Party fornito dall’organizzatore. Tutte le CTA di acquisto Party usano questo URL.
 - `releases[].url`: eventuale URL specifico della singola offerta; se vuoto viene usato `xceedUrl`.
 - Verificare stati, prezzi e date delle release con l’organizzatore prima del lancio.
 
-Gli URL XCEED sono ancora vuoti: le CTA Party attualmente mostrano un messaggio di disponibilità futura. Questa parte va completata per consentire la vendita. `quantity` indica la capienza iniziale, non i biglietti residui: non c’è un collegamento live all’inventario XCEED. Gli stati SOLD OUT vanno aggiornati manualmente nel config.
+Il checkout XCEED è configurato: https://xceed.me/en/bari/event/fobia-pietrasole-halloween-party/248338/channel/puglia-night. `quantity` indica la capienza iniziale, non i biglietti residui: non c’è un collegamento live all’inventario XCEED. Gli stati SOLD OUT vanno aggiornati manualmente nel config.
 
 ## Collegamenti già configurati
 
@@ -87,3 +87,17 @@ python scripts/export-preview.py --url http://127.0.0.1:3000 --output FOBIA-ante
 ```
 
 `SHA256SUMS.txt` nella radice del pacchetto permette di verificare l’integrità di tutti i file consegnati.
+
+
+## GitHub Pages — build statica pronta
+
+```sh
+npm ci
+npm run build:pages
+```
+
+Il comando produce `out/`, genera copie WebP ottimizzate (gli originali restano intatti) e configura basePath `/fobia` e URL `https://vhagakure.github.io/fobia/`. Il sito mantiene JavaScript e cambio automatico delle release. È stato verificato localmente a 320, 390 e 1440 px, compreso passaggio €15 → €20 dopo la scadenza.
+
+È già stato caricato un branch `gh-pages` con il sito compilato e `.nojekyll`. Per attivarlo, il proprietario del repository deve aprire https://github.com/vhagakure/fobia/settings/pages, scegliere Source **Deploy from a branch**, branch **gh-pages**, cartella **/(root)** e salvare. Il caricamento del branch non prova che GitHub Pages sia attivo: l’attivazione e l’URL esterno vanno verificati.
+
+Per un altro dominio/percorso, impostare `NEXT_PUBLIC_BASE_PATH` e `NEXT_PUBLIC_SITE_URL` prima di `npm run build:pages`. L’export statico usa `src/lib/assets.ts` per gli URL pubblici sotto il percorso corretto; `.next` e `public/optimized` sono output rigenerabili. La build normale rimane `npm run build`.

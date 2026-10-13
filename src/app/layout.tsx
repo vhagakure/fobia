@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { event } from "@/lib/event";
+import { assetPath } from "@/lib/assets";
 import localFont from "next/font/local";
 const posterFont = localFont({
   src: "../../node_modules/@fontsource/bodoni-moda/files/bodoni-moda-latin-900-normal.woff2",
@@ -14,7 +15,10 @@ const description =
   "Una notte dentro le tue paure. NOH Experience e Halloween Party a Pietrasole, 31 ottobre 2026.";
 export const metadata: Metadata = {
   ...(event.siteUrl
-    ? { metadataBase: new URL(event.siteUrl), alternates: { canonical: "/" } }
+    ? {
+        metadataBase: new URL(event.siteUrl),
+        alternates: { canonical: event.siteUrl },
+      }
     : {}),
   title,
   description,
@@ -29,7 +33,7 @@ export const metadata: Metadata = {
       ? {
           images: [
             {
-              url: event.artwork.social,
+              url: assetPath(event.artwork.social),
               width: 1080,
               height: 1350,
               alt: event.name,
@@ -42,7 +46,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    ...(event.artwork.social ? { images: [event.artwork.social] } : {}),
+    ...(event.artwork.social
+      ? { images: [assetPath(event.artwork.social)] }
+      : {}),
   },
 };
 export default function RootLayout({

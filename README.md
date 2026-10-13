@@ -9,7 +9,7 @@ npm ci
 npm run dev
 ```
 
-Tutti i contenuti modificabili e gli URL sono in `src/lib/event.ts`. Prima della pubblicazione completare `siteUrl` e i link XCEED. Cena e tavoli sono già collegati a WhatsApp; Maps è configurato. La cena comprende ingresso al Party.
+Tutti i contenuti modificabili e gli URL sono in `src/lib/event.ts`. Il checkout XCEED è configurato. Per Node/Vercel impostare `siteUrl` o `NEXT_PUBLIC_SITE_URL` al dominio effettivo; la build Pages lo imposta automaticamente. Cena e tavoli sono già collegati a WhatsApp; Maps è configurato. La cena comprende ingresso al Party.
 
 ```sh
 npm run typecheck
@@ -18,3 +18,5 @@ npm test
 ```
 
 Il progetto è stato verificato con Node.js 24.19.0 e npm 11.9.0. L’anteprima HTML inclusa nel pacchetto è un’istantanea per revisione; la versione da pubblicare è il progetto Next.js.
+
+GitHub Pages: `npm run build:pages` produce `out/` per il branch `gh-pages`. Attivazione dal pannello GitHub Settings → Pages.

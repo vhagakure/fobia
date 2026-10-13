@@ -20,9 +20,10 @@ export const event = {
   dateISO: "2026-10-31T21:00:00+01:00",
   location: "Masseria Pietrasole",
   payoff: "UNA NOTTE DENTRO LE TUE PAURE.",
-  siteUrl: "",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "",
   mapsUrl: "https://share.google/Fwdj2Vf0Kybxr2W0X",
-  xceedUrl: "",
+  xceedUrl:
+    "https://xceed.me/en/bari/event/fobia-pietrasole-halloween-party/248338/channel/puglia-night",
   dinnerUrl: whatsappLink(),
   // Paths to original files only. Leave empty until supplied; never replace logos with redraws.
   artwork: {
