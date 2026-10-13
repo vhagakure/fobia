@@ -30,7 +30,7 @@ export const event = {
     hero: "/artwork/hero.png",
     headerDate: "/artwork/date.png",
     heroText: "/artwork/3_piotta.png",
-    dinner: "/artwork/dinner-fobia.png",
+    dinner: "/artwork/artist-dinner.jpg",
     party: "/artwork/dance-fobia.png",
     location: "/artwork/location.png",
     social: "/artwork/hero.png",
@@ -202,9 +202,9 @@ export const event = {
       { name: "ALESSANDRO GUASTELLA", format: "" },
     ],
     artworkStyle: {
-      desktopPosition: "center 42%",
-      mobilePosition: "center 38%",
-      opacity: 0.5,
+      desktopPosition: "66% center",
+      mobilePosition: "64% center",
+      opacity: 0.48,
     },
     menu: [
       { fear: "ARACNOFOBIA", dish: "Black Waffle · Mayo polpo · Tobiko" },

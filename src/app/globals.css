@@ -1493,3 +1493,15 @@ dialog:not([open]) {
   .dinner-show-music { margin-top: 48px; }
   .dinner-show-menu { margin-top: 48px; }
 }
+
+/* Original live photo fades into the dinner stage without a separate image panel. */
+.dinner-backdrop { top: 140px; bottom: auto; height: 740px; }
+.dinner-backdrop:after {
+  background: linear-gradient(180deg, var(--ink) 0%, rgba(16,14,13,.15) 18%, rgba(16,14,13,.35) 55%, var(--ink) 100%);
+}
+@media (min-width: 700px) {
+  .dinner-backdrop { top: 190px; left: 24%; height: 850px; }
+  .dinner-backdrop:after {
+    background: linear-gradient(90deg, var(--ink) 0%, rgba(16,14,13,.55) 30%, rgba(16,14,13,.08) 70%), linear-gradient(180deg, var(--ink) 0%, transparent 18%, transparent 60%, var(--ink) 100%);
+  }
+}
