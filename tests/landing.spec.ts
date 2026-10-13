@@ -19,12 +19,13 @@ for (const width of [320, 390, 768, 1440]) {
         () => document.documentElement.scrollWidth <= window.innerWidth,
       ),
     ).toBe(true);
-    await page.getByRole("link", { name: "SCOPRI LA NOTTE" }).click();
+    await page.getByRole("link", { name: "SCOPRI L'EVENTO" }).click();
     await expect(page).toHaveURL(/#experiences$/);
     await expect(page.locator("#experiences .fine-print")).toBeVisible();
     await expect(page.locator(".menu-item")).toHaveCount(6);
     await expect(page.locator(".artist")).toHaveCount(0);
-    await expect(page.getByText("MUSIC BY", { exact: true })).toHaveCount(0);
+    await expect(page.locator("#party").getByText("MUSIC BY", { exact: true })).toHaveCount(0);
+    await expect(page.locator("#dinner .dinner-show-music")).toContainText("MUSIC BY");
     await expect(page.locator("#dinner .fine-print")).toHaveText(
       event.copy.dinnerIncludesParty,
     );
@@ -109,7 +110,7 @@ test("dinner reservation opens the requested WhatsApp chat", async ({
   page,
 }) => {
   await page.goto("/", { waitUntil: "networkidle" });
-  const link = page.getByRole("link", { name: "PRENOTA LA DINNER EXPERIENCE" });
+  const link = page.getByRole("link", { name: "PRENOTA LA CENA" });
   await expect(link).toHaveAttribute("href", "https://wa.me/393468022848");
   await expect(link).toHaveAttribute("target", "_blank");
   await expect(page.locator("#experiences .fine-print")).toHaveText(
@@ -202,7 +203,7 @@ test("table WhatsApp requests, location and production credits", async ({
   expect(messages[1]).toContain("un tavolo PRIVÉE");
   expect(messages[0]).not.toBe(messages[1]);
   await expect(page.locator("#tickets")).toContainText(
-    "PRIMA SCEGLI. MENO SPENDI.",
+    "TICKETS & RELEASES",
   );
   await expect(page.locator("#location")).toContainText(
     "STRADA SCANZANO - BARI",
@@ -292,12 +293,13 @@ test("updated dinner narrative, party entry and ticket inclusions", async ({ pag
   await expect(tickets.locator(".fine-print")).toContainText(event.copy.ticketsExplanation);
   await expect(tickets.locator(".fine-print")).toContainText(event.copy.dinnerIncludesParty);
   const dinner = page.locator("#dinner");
-  await expect(dinner.getByRole("heading", { level: 2 })).toHaveText("NOHDINNER SHOW");
-  await expect(dinner).toContainText("Alessandro Guastella");
+  await expect(dinner.getByRole("heading", { level: 2 })).toHaveText("CENA SPETTACOLO");
+  await expect(dinner).toContainText("ALESSANDRO GUASTELLA");
   await expect(dinner).toContainText("Chef Daniel Cavuoto");
   await expect(dinner).toContainText("NON AVERE PAURA!");
   const party = page.locator("#party");
   await expect(party.locator(".section-top")).toContainText("AFTER DINNER PARTY");
   await expect(party.locator(".section-top")).toContainText("ENTRY FROM 23:30");
-  await expect(party.locator(".party-copy")).toHaveText("Dalle 23:30, la paura cambia ritmo.");
+  await expect(party).not.toContainText("la paura cambia ritmo");
+  await expect(dinner.locator(".dinner-artist-format")).toHaveText("LIVE HYBRID DUO");
 });

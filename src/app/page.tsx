@@ -132,7 +132,7 @@ export default function Home() {
           </p>
           <div className="hero-actions">
             <a className="action dark" href="#experiences">
-              SCOPRI LA NOTTE <span>↓</span>
+              {event.copy.heroDiscover} <span>↓</span>
             </a>
             <a
               className="text-link"
@@ -150,16 +150,9 @@ export default function Home() {
         </div>
       </section>
       <section className="section intro">
-        <span className="eyebrow">IL CONFINE È DENTRO DI TE.</span>
-        <h2>
-          UNA NOTTE.
-          <br />
-          DUE ESPERIENZE.
-          <br />
-          <span>SEI PAURE.</span>
-          <br />
-          UN SOLO LUOGO.
-        </h2>
+        <h2>{event.copy.introTitle}</h2>
+        <p className="intro-format">{event.copy.introFormat}</p>
+        <p className="intro-description">{event.copy.introDescription}</p>
         <CroppedArtwork
           src={event.artwork.location}
           crop={event.artworkCrops.location}
@@ -225,37 +218,29 @@ export default function Home() {
           )}
           <div className="section-top">
             <span className="eyebrow">02 / {event.copy.dinnerLabel}</span>
-            <span className="eyebrow">START {event.dinner.start}</span>
+            <span className="eyebrow">DALLE {event.dinner.start}</span>
           </div>
-          <div className="dinner-heading">
-            <h2 className="display">
-              NOH<span>{event.copy.dinnerFormat}</span>
-            </h2>
-            <p>
-              6 PORTATE.
-              <br />6 PAURE.
-            </p>
+          <div className="dinner-show-heading">
+            <h2>{event.copy.dinnerHeading}</h2>
+            <p className="eyebrow">DALLE {event.dinner.start}</p>
           </div>
-          <div className="dinner-grid">
-            <div>
-              <p className="dinner-copy">
-                {event.copy.dinnerPerformance}
-              </p>
-              <p className="dinner-copy">{event.copy.dinnerJourney}</p>
-              <p className="dinner-closing">{event.copy.dinnerClosing}</p>
-              <div className="dinner-price">
-                <strong>€{event.dinner.price}</strong>
-                <span>
-                  P.P.
-                  <br />
-                  VINI ESCLUSI
-                </span>
+          <div className="dinner-show-music">
+            <h3 className="eyebrow">{event.copy.dinnerMusicLabel}</h3>
+            {event.dinner.musicians.map((artist, index) => (
+              <div className={`dinner-artist ${index === 0 ? "featured" : ""}`} key={artist.name}>
+                <p className="dinner-artist-name">{artist.name}</p>
+                {artist.format && <p className="dinner-artist-format">{artist.format}</p>}
               </div>
-              <p className="fine-print">{event.copy.dinnerIncludesParty}</p>
-              <Action href={event.dinnerUrl} className="dark">
-                PRENOTA LA DINNER EXPERIENCE
-              </Action>
-            </div>
+            ))}
+          </div>
+          <div className="dinner-show-menu">
+            <h3 className="eyebrow">{event.copy.dinnerMenuLabel}</h3>
+            <p className="dinner-show-courses">{event.copy.dinnerCourses}</p>
+            <p className="dinner-copy">{event.copy.dinnerJourney}</p>
+            <p className="dinner-closing">{event.copy.dinnerClosing}</p>
+            <p className="dinner-show-price">€{event.dinner.price} P.P. · {event.dinner.note.toUpperCase()}</p>
+            <Action href={event.dinnerUrl} className="dark">{event.copy.dinnerCta}</Action>
+            <p className="fine-print">{event.copy.dinnerIncludesParty}</p>
           </div>
         </div>
         <div className="dinner-menu">
@@ -309,9 +294,6 @@ export default function Home() {
         </h2>
         <div className="party-grid">
           <div>
-            <p className="party-copy">
-              {event.copy.partyIntro}
-            </p>
             <p>{event.copy.partySummary.toUpperCase()}</p>
             <div className="party-lineup">
               <p className="eyebrow">{event.copy.partyLineupLabel}</p>
@@ -339,7 +321,7 @@ export default function Home() {
                 0{i + 1} / {table.availability || "PRIVÉE"}
               </span>
               <h3>{table.name}</h3>
-              <p>{table.description}</p>
+              {table.description && <p>{table.description}</p>}
               <div className="table-spend">
                 <strong>€{table.minimum}</strong>
                 <span>

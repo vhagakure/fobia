@@ -17,7 +17,7 @@ export function Tickets() {
     <>
       <section id="tickets" className="section tickets">
         <div className="section-top">
-          <span className="eyebrow">04 / HALLOWEEN PARTY · PASSES</span>
+          <span className="eyebrow">04 / HALLOWEEN PARTY</span>
           <span className="eyebrow">{event.copy.ticketsPayoff}</span>
         </div>
         <h2 className="display">

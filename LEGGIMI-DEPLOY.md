@@ -49,7 +49,7 @@ Il checkout XCEED è configurato: https://xceed.me/en/bari/event/fobia-pietrasol
 - PRIVÉE: stesso WhatsApp con messaggio precompilato per un tavolo PRIVÉE.
 - GET DIRECTION: https://share.google/Fwdj2Vf0Kybxr2W0X.
 
-La cena su prenotazione comprende l’accesso al Party. Il prezzo DOOR ENTRY include 1 drink. L’ingresso Party è dalle 23:30; la musica cambia ritmo dalle 23:30. I pass Party includono Fast Lane e 1 drink, come da configurazione. I tavoli si prenotano tramite WhatsApp.
+La cena su prenotazione comprende l’accesso al Party. Il prezzo DOOR ENTRY include 1 drink. L’ingresso Party è dalle 23:30; la dicitura sul cambio di ritmo è stata rimossa. I pass Party includono Fast Lane e 1 drink, come da configurazione. I tavoli si prenotano tramite WhatsApp.
 
 ## Asset e design
 
@@ -101,3 +101,7 @@ Il comando produce `out/`, genera copie WebP ottimizzate (gli originali restano 
 È già stato caricato un branch `gh-pages` con il sito compilato e `.nojekyll`. Per attivarlo, il proprietario del repository deve aprire https://github.com/vhagakure/fobia/settings/pages, scegliere Source **Deploy from a branch**, branch **gh-pages**, cartella **/(root)** e salvare. Il caricamento del branch non prova che GitHub Pages sia attivo: l’attivazione e l’URL esterno vanno verificati.
 
 Per un altro dominio/percorso, impostare `NEXT_PUBLIC_BASE_PATH` e `NEXT_PUBLIC_SITE_URL` prima di `npm run build:pages`. L’export statico usa `src/lib/assets.ts` per gli URL pubblici sotto il percorso corretto; `.next` e `public/optimized` sono output rigenerabili. La build normale rimane `npm run build`.
+
+## Revisione cena spettacolo
+
+Hero: SCOPRI L'EVENTO. Intro diretto: IL 31 OTTOBRE CI VEDIAMO A PIETRASOLE., DINNER SHOW · HALLOWEEN PARTY e breve descrizione. La cena dà priorità alla musica: CENA SPETTACOLO, DALLE 21:00, MUSIC BY, VALERIO BARILE / LIVE HYBRID DUO e ALESSANDRO GUASTELLA, poi MENU BY NŌH SAMBA, portate, chef, prezzo e PRENOTA LA CENA. Artisti in dinner.musicians; diciture in copy. Party mantiene DJ SET & CLUB DANCEFLOOR, LINE UP PARTY / TBA e ingresso dalle 23:30; il testo sul cambio di ritmo è rimosso. Ticket: TICKETS & RELEASES senza PASSES. Il Privée non ha più il payoff descrittivo.
