@@ -1,4 +1,4 @@
-:HL["/fobia/_next/static/chunks/0z6ps8c1alz3d.css","style"]
+:HL["/fobia/_next/static/chunks/2_61_swy4zx_m.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"lxvcLXYmSkZwXDXHYgKO9","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"ATV3GimMhWHdV1lOtRITN","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
