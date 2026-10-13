@@ -49,7 +49,7 @@ Il checkout XCEED è configurato: https://xceed.me/en/bari/event/fobia-pietrasol
 - PRIVÉE: stesso WhatsApp con messaggio precompilato per un tavolo PRIVÉE.
 - GET DIRECTION: https://share.google/Fwdj2Vf0Kybxr2W0X.
 
-La cena su prenotazione comprende l’accesso al Party. Il prezzo DOOR ENTRY include 1 drink. L’ingresso Party è dalle 23:30; la musica cambia ritmo dalle 23:00. I pass Party includono Fast Lane e 1 drink, come da configurazione. I tavoli si prenotano tramite WhatsApp.
+La cena su prenotazione comprende l’accesso al Party. Il prezzo DOOR ENTRY include 1 drink. L’ingresso Party è dalle 23:30; la musica cambia ritmo dalle 23:30. I pass Party includono Fast Lane e 1 drink, come da configurazione. I tavoli si prenotano tramite WhatsApp.
 
 ## Asset e design
 

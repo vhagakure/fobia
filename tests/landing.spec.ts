@@ -299,5 +299,5 @@ test("updated dinner narrative, party entry and ticket inclusions", async ({ pag
   const party = page.locator("#party");
   await expect(party.locator(".section-top")).toContainText("AFTER DINNER PARTY");
   await expect(party.locator(".section-top")).toContainText("ENTRY FROM 23:30");
-  await expect(party.locator(".party-copy")).toHaveText("Dalle 23:00, la paura cambia ritmo.");
+  await expect(party.locator(".party-copy")).toHaveText("Dalle 23:30, la paura cambia ritmo.");
 });

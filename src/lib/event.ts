@@ -175,7 +175,7 @@ export const event = {
     dinnerClosing: "NON AVERE PAURA!",
     ticketsExplanation: "I ticket sono per la festa dopo cena con ingresso a partire dalle 23:30.",
     partyFormat: "AFTER DINNER PARTY",
-    partyIntro: "Dalle 23:00, la paura cambia ritmo.",
+    partyIntro: "Dalle 23:30, la paura cambia ritmo.",
     partySummary: "Dj Set & Club Dancefloor",
     dinnerIncludesParty:
       "La partecipazione alla cena è su prenotazione e comprende l'accesso al party.",
@@ -203,7 +203,7 @@ export const event = {
     ],
   },
   party: {
-    start: "23:00",
+    start: "23:30",
     entryFrom: "23:30",
     artworkStyle: {
       desktopPosition: "center 60%",
