@@ -169,16 +169,17 @@ export default function Home() {
       </section>
       <section id="experiences" className="section experiences">
         <div className="section-top">
-          <span className="eyebrow">01 / SCEGLI COME ENTRARE</span>
+          <span className="eyebrow">01 / {event.copy.experiencesHeading}</span>
           <span aria-hidden="true">✦</span>
         </div>
         <a className="experience-row" href="#dinner">
           <span className="eyebrow">
             {event.dinner.start} / {event.copy.dinnerFormat}
           </span>
-          <h2>{event.copy.dinnerLabel}</h2>
+          <h2>{event.copy.dinnerPreviewTitle}</h2>
           <span className="experience-summary">
-            6 portate. 6 paure. €{event.dinner.price} p.p.
+            <span className="experience-music">{event.copy.dinnerPreviewMusic}</span>
+            <span>6 portate. 6 Paure. {event.dinner.price}€ p.p. Vini Esclusi.</span>
           </span>
           <span className="experience-arrow">
             <Arrow />

@@ -1465,3 +1465,5 @@ dialog:not([open]) {
 
 .dinner-copy + .dinner-copy { margin-top: 14px; }
 .dinner-closing { margin-top: 20px; font-weight: 700; letter-spacing: .04em; color: var(--red); }
+
+.experience-music { display: block; margin-bottom: 10px; font-size: 15px; line-height: 1.5; }
