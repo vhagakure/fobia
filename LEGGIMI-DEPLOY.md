@@ -1,6 +1,6 @@
 # FOBIA PIETRASOLE — consegna per il programmatore
 
-Landing approvata fino all’ultima revisione: quattro loghi originali in alto e in chiusura, hero con occhi, Masseria nell’intro, NŌH Experience, Halloween Party con illustrazione di sfondo, release ticket, tavoli e CTA fisse cena/Party.
+Landing approvata fino all’ultima revisione: quattro loghi originali in alto e in chiusura, hero con occhi, Masseria nell’intro, NOH Dinner Show, Halloween Party con illustrazione di sfondo, release ticket, tavoli e CTA fisse cena/Party.
 
 ## Avvio rapido
 
@@ -49,13 +49,13 @@ Il checkout XCEED è configurato: https://xceed.me/en/bari/event/fobia-pietrasol
 - PRIVÉE: stesso WhatsApp con messaggio precompilato per un tavolo PRIVÉE.
 - GET DIRECTION: https://share.google/Fwdj2Vf0Kybxr2W0X.
 
-La cena comprende l’ingresso al Party. Il prezzo DOOR ENTRY non include il drink. I pass Party includono Fast Lane e 1 drink, come da configurazione. I tavoli si prenotano tramite WhatsApp.
+La cena su prenotazione comprende l’accesso al Party. Il prezzo DOOR ENTRY include 1 drink. L’ingresso Party è dalle 23:30; la musica cambia ritmo dalle 23:00. I pass Party includono Fast Lane e 1 drink, come da configurazione. I tavoli si prenotano tramite WhatsApp.
 
 ## Asset e design
 
 Tutti i file originali sono in `public/artwork`. I ritagli avvengono nel layout CSS, senza alterazioni degli originali. `event.partners` contiene i quattro loghi nell’ordine 1–4; il componente `PartnerLogos` li riusa in alto e in fondo. NŌH Samba ha dimensione originale 661×471; gli altri loghi hanno canvas 1080×1350. Non normalizzare i canvas o sostituire i loghi con testi.
 
-La grafica originale date.png sostituisce la data centrale nell’intestazione, con ritaglio in artworkCrops.headerDate e dimensione responsive. La versione mobile ha spazi tra sezioni e blocchi più compatti, mantenendo leggibili le grafiche e CTA con touch target adeguati. Hero e location hanno crop dedicati in `artworkCrops`. Il file TESTO-HERO è `3_piotta.png`, centrato sotto il payoff: i crop in `heroSupplement` mostrano la riga completa su desktop e più righe leggibili su mobile, usando sempre i pixel originali. `dinner-fobia.png` è lo sfondo della parte introduttiva NŌH Experience, con posizioni responsive e opacità in `dinner.artworkStyle`; il menu mantiene il fondo rosso per leggibilità. `dance-fobia.png` è lo sfondo decorativo del Party, con ritaglio responsive, opacità e gradienti; le impostazioni sono in `party.artworkStyle`. Il font Bodoni Moda è incluso tramite il pacchetto npm e `next/font/local`. La licenza originale del font è in `licenses/Bodoni-Moda-OFL.txt`.
+La grafica originale date.png sostituisce la data centrale nell’intestazione, con ritaglio in artworkCrops.headerDate e dimensione responsive. La versione mobile ha spazi tra sezioni e blocchi più compatti, mantenendo leggibili le grafiche e CTA con touch target adeguati. Hero e location hanno crop dedicati in `artworkCrops`. Il file TESTO-HERO è `3_piotta.png`, centrato sotto il payoff: i crop in `heroSupplement` mostrano la riga completa su desktop e più righe leggibili su mobile, usando sempre i pixel originali. `dinner-fobia.png` è lo sfondo della parte introduttiva NOH Dinner Show, con posizioni responsive e opacità in `dinner.artworkStyle`; il menu mantiene il fondo rosso per leggibilità. `dance-fobia.png` è lo sfondo decorativo del Party, con ritaglio responsive, opacità e gradienti; le impostazioni sono in `party.artworkStyle`. Il font Bodoni Moda è incluso tramite il pacchetto npm e `next/font/local`. La licenza originale del font è in `licenses/Bodoni-Moda-OFL.txt`.
 
 ## Verifica
 
@@ -72,7 +72,7 @@ npx playwright install chromium
 npm test
 ```
 
-In alternativa usare `CHROMIUM_PATH` per indicare un eseguibile Chromium già installato. Verificati build, TypeScript e 16 test: responsive da 320 a 1440 px, CTA, link e messaggi, asset, release, riduzione movimento e metadati. I test non eseguono pagamenti o inviano messaggi WhatsApp.
+In alternativa usare `CHROMIUM_PATH` per indicare un eseguibile Chromium già installato. Verificati build, TypeScript e 17 test: responsive da 320 a 1440 px, CTA, link e messaggi, asset, release, riduzione movimento e metadati. I test non eseguono pagamenti o inviano messaggi WhatsApp.
 
 Dopo il deploy verificare da telefono: hero e immagini, assenza di scroll orizzontale, WhatsApp cena e tavoli, Maps, prezzo corrente nella barra fissa e checkout XCEED. Verificare la social preview dal dominio definitivo.
 

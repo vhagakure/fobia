@@ -168,11 +168,17 @@ export const event = {
     address: "STRADA SCANZANO - BARI",
     directionsLabel: "GET DIRECTION",
     producersLabel: "UN EVENTO PRODOTTO DA",
-    dinnerLabel: "NŌH EXPERIENCE",
+    dinnerLabel: "NOH DINNER SHOW",
     dinnerFormat: "DINNER SHOW",
+    dinnerPerformance: "Una cena spettacolo con Valerio Barile Hybrid Duo e Alessandro Guastella.",
+    dinnerJourney: "Sei portate firmate dallo Chef Daniel Cavuoto, in un percorso gastronomico attraverso le nostre fobie.",
+    dinnerClosing: "NON AVERE PAURA!",
+    ticketsExplanation: "I ticket sono per la festa dopo cena con ingresso a partire dalle 23:30.",
+    partyFormat: "AFTER DINNER PARTY",
+    partyIntro: "Dalle 23:00, la paura cambia ritmo.",
     partySummary: "Dj Set & Club Dancefloor",
     dinnerIncludesParty:
-      "La partecipazione alla cena comprende ingresso al Party.",
+      "La partecipazione alla cena è su prenotazione e comprende l'accesso al party.",
   },
   dinner: {
     name: "NŌH",
@@ -198,6 +204,7 @@ export const event = {
   },
   party: {
     start: "23:00",
+    entryFrom: "23:30",
     artworkStyle: {
       desktopPosition: "center 60%",
       mobilePosition: "center 58%",
@@ -244,7 +251,7 @@ export const event = {
       id: "door",
       name: "DOOR ENTRY",
       price: 30,
-      benefits: "Acquisto al botteghino",
+      benefits: "Ingresso + 1 drink",
       status: "NEXT",
     },
   ] satisfies Release[],

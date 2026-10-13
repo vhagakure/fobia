@@ -145,7 +145,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-foot">
-          <span>21:00 DINNER / 23:00 PARTY</span>
+          <span>{event.dinner.start} DINNER / {event.party.entryFrom} PARTY ENTRY</span>
           <span>SCROLL TO FEEL ↓</span>
         </div>
       </section>
@@ -185,7 +185,7 @@ export default function Home() {
           </span>
         </a>
         <a className="experience-row" href="#party">
-          <span className="eyebrow">23:00 / LA METAMORFOSI</span>
+          <span className="eyebrow">ENTRY FROM {event.party.entryFrom} / {event.copy.partyFormat}</span>
           <h2>
             HALLOWEEN
             <br />
@@ -228,7 +228,7 @@ export default function Home() {
           </div>
           <div className="dinner-heading">
             <h2 className="display">
-              NŌH<span>EXPERIENCE</span>
+              NOH<span>{event.copy.dinnerFormat}</span>
             </h2>
             <p>
               6 PORTATE.
@@ -238,9 +238,10 @@ export default function Home() {
           <div className="dinner-grid">
             <div>
               <p className="dinner-copy">
-                Un percorso gastronomico costruito intorno a sei differenti
-                fobie. La paura prende posto a tavola.
+                {event.copy.dinnerPerformance}
               </p>
+              <p className="dinner-copy">{event.copy.dinnerJourney}</p>
+              <p className="dinner-closing">{event.copy.dinnerClosing}</p>
               <div className="dinner-price">
                 <strong>€{event.dinner.price}</strong>
                 <span>
@@ -297,8 +298,8 @@ export default function Home() {
           </div>
         )}
         <div className="section-top">
-          <span className="eyebrow">03 / DOPO IL RITUALE</span>
-          <span className="eyebrow">START {event.party.start}</span>
+          <span className="eyebrow">03 / {event.copy.partyFormat}</span>
+          <span className="eyebrow">ENTRY FROM {event.party.entryFrom}</span>
         </div>
         <h2 className="display">
           HALLOWEEN
@@ -308,9 +309,7 @@ export default function Home() {
         <div className="party-grid">
           <div>
             <p className="party-copy">
-              Quando finisce la cena,
-              <br />
-              FOBIA cambia forma.
+              {event.copy.partyIntro}
             </p>
             <p>{event.copy.partySummary.toUpperCase()}</p>
             <Action href={event.xceedUrl}>ACQUISTA IL TUO PASS</Action>

@@ -283,3 +283,21 @@ test("header uses the centered original date artwork", async ({ page }) => {
   expect(Math.abs(box.x + box.width / 2 - 195)).toBeLessThan(2);
   await expect(page.locator(".site-header > span")).toHaveCount(0);
 });
+
+test("updated dinner narrative, party entry and ticket inclusions", async ({ page }) => {
+  await page.goto("/");
+  const tickets = page.locator("#tickets");
+  await expect(tickets).not.toContainText(/PASS TOTALI|PASS DISPONIBILI|Drink non incluso/);
+  await expect(tickets.locator(".release").last()).toContainText("Ingresso + 1 drink");
+  await expect(tickets.locator(".fine-print")).toContainText(event.copy.ticketsExplanation);
+  await expect(tickets.locator(".fine-print")).toContainText(event.copy.dinnerIncludesParty);
+  const dinner = page.locator("#dinner");
+  await expect(dinner.getByRole("heading", { level: 2 })).toHaveText("NOHDINNER SHOW");
+  await expect(dinner).toContainText("Alessandro Guastella");
+  await expect(dinner).toContainText("Chef Daniel Cavuoto");
+  await expect(dinner).toContainText("NON AVERE PAURA!");
+  const party = page.locator("#party");
+  await expect(party.locator(".section-top")).toContainText("AFTER DINNER PARTY");
+  await expect(party.locator(".section-top")).toContainText("ENTRY FROM 23:30");
+  await expect(party.locator(".party-copy")).toHaveText("Dalle 23:00, la paura cambia ritmo.");
+});

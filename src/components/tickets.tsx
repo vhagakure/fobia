@@ -46,7 +46,6 @@ export function Tickets() {
                 </div>
                 <div className="release-price">€{r.price}</div>
                 <div className="release-details">
-                  {r.quantity && <p>{r.quantity} PASS TOTALI</p>}
                   {r.endsAt && (
                     <p>
                       Fino al {endLabel(r.endsAt)}
@@ -56,8 +55,6 @@ export function Tickets() {
                   {r.id === "door" && (
                     <p>
                       Solo al botteghino.
-                      <br />
-                      Drink non incluso.
                     </p>
                   )}
                 </div>
@@ -71,9 +68,9 @@ export function Tickets() {
           })}
         </div>
         <p className="fine-print">
-          I pass e i tavoli sono per l’Halloween Party.{" "}
-          {event.copy.dinnerIncludesParty} Disponibilità e acquisto dei pass
-          sono confermati su XCEED.
+          {event.copy.ticketsExplanation}
+          <br />
+          {event.copy.dinnerIncludesParty}
         </p>
       </section>
       <nav
