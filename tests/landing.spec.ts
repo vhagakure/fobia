@@ -133,7 +133,7 @@ test("official artwork loads and crops in the requested sections", async ({
   await page.goto("/", { waitUntil: "networkidle" });
   const partners = page.locator(".partners-top img");
   await expect(partners).toHaveCount(4);
-  const hero = page.locator(".hero-artwork img");
+  const hero = page.locator(".hero-artwork > .cropped-artwork img");
   const location = page.locator(".intro-location img");
   for (const img of [...(await partners.all()), hero, location]) {
     await img.scrollIntoViewIfNeeded();
@@ -224,4 +224,51 @@ test("table WhatsApp requests, location and production credits", async ({
       .locator(".production-credits img")
       .evaluateAll((images) => images.map((img) => img.getAttribute("alt"))),
   ).toEqual(["Cambè", "NŌH Samba", "Hagakure", "Yuppies"]);
+});
+
+test("hero supplement is centered below the payoff and its artwork loads", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 1000 });
+  await page.goto("/", { waitUntil: "networkidle" });
+  const supplement = page.locator(".hero-supplement");
+  await supplement.scrollIntoViewIfNeeded();
+  await expect(supplement).toHaveAttribute(
+    "aria-label",
+    /DRESSCODE OBBLIGATORIO/,
+  );
+  const bounds = (await supplement.boundingBox())!;
+  const payoff = (await page.locator(".hero-artwork > p").boundingBox())!;
+  expect(bounds.y).toBeGreaterThan(payoff.y + payoff.height);
+  expect(Math.abs(bounds.x + bounds.width / 2 - 195)).toBeLessThan(2);
+  for (const img of await page.locator(".hero-supplement-mobile img").all()) {
+    await expect
+      .poll(() =>
+        img.evaluate(
+          (el: HTMLImageElement) => el.complete && el.naturalWidth > 0,
+        ),
+      )
+      .toBe(true);
+  }
+});
+
+test("dinner artwork loads behind content while the six-course menu stays readable", async ({
+  page,
+}) => {
+  await page.goto("/", { waitUntil: "networkidle" });
+  const image = page.locator(".dinner-backdrop img");
+  await page.locator(".dinner-stage").scrollIntoViewIfNeeded();
+  await expect
+    .poll(() =>
+      image.evaluate(
+        (el: HTMLImageElement) => el.complete && el.naturalWidth > 0,
+      ),
+    )
+    .toBe(true);
+  await expect(page.locator("#dinner")).toHaveClass(/has-dinner-artwork/);
+  await expect(page.locator(".dinner-menu .menu-item")).toHaveCount(6);
+  await expect(page.locator(".dinner-stage .action")).toHaveAttribute(
+    "href",
+    "https://wa.me/393468022848",
+  );
 });

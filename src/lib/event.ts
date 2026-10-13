@@ -27,11 +27,64 @@ export const event = {
   // Paths to original files only. Leave empty until supplied; never replace logos with redraws.
   artwork: {
     hero: "/artwork/hero.png",
-    dinner: "",
+    heroText: "/artwork/3_piotta.png",
+    dinner: "/artwork/dinner-fobia.png",
     party: "/artwork/dance-fobia.png",
     location: "/artwork/location.png",
     social: "/artwork/hero.png",
   },
+  heroSupplement: {
+    alt: "DINNER SHOW · HALLOWEEN PARTY · DRINKLIST SELECTION. DRESSCODE OBBLIGATORIO | PREMIO MIGLIOR COSTUME.",
+    desktop: {
+      sourceWidth: 1080,
+      sourceHeight: 1350,
+      x: 85,
+      y: 638,
+      width: 910,
+      height: 73,
+    },
+    dinner: {
+      sourceWidth: 1080,
+      sourceHeight: 1350,
+      x: 91,
+      y: 644,
+      width: 221,
+      height: 32,
+    },
+    party: {
+      sourceWidth: 1080,
+      sourceHeight: 1350,
+      x: 333,
+      y: 644,
+      width: 296,
+      height: 32,
+    },
+    drinks: {
+      sourceWidth: 1080,
+      sourceHeight: 1350,
+      x: 649,
+      y: 644,
+      width: 340,
+      height: 32,
+    },
+    dresscode: {
+      sourceWidth: 1080,
+      sourceHeight: 1350,
+      x: 220,
+      y: 675,
+      width: 314,
+      height: 30,
+    },
+    prize: {
+      sourceWidth: 1080,
+      sourceHeight: 1350,
+      x: 544,
+      y: 675,
+      width: 316,
+      height: 30,
+    },
+  },
+
   partners: [
     {
       name: "Cambè",
@@ -116,6 +169,11 @@ export const event = {
     start: "21:00",
     price: 60,
     note: "Vini esclusi",
+    artworkStyle: {
+      desktopPosition: "center 42%",
+      mobilePosition: "center 38%",
+      opacity: 0.5,
+    },
     menu: [
       { fear: "ARACNOFOBIA", dish: "Black Waffle · Mayo polpo · Tobiko" },
       { fear: "SUINOFOBIA", dish: "Basara Sandwich and Red Sauce" },

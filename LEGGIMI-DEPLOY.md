@@ -55,7 +55,7 @@ La cena comprende l’ingresso al Party. Il prezzo DOOR ENTRY non include il dri
 
 Tutti i file originali sono in `public/artwork`. I ritagli avvengono nel layout CSS, senza alterazioni degli originali. `event.partners` contiene i quattro loghi nell’ordine 1–4; il componente `PartnerLogos` li riusa in alto e in fondo. NŌH Samba ha dimensione originale 661×471; gli altri loghi hanno canvas 1080×1350. Non normalizzare i canvas o sostituire i loghi con testi.
 
-Hero e location hanno crop dedicati in `artworkCrops`. `dance-fobia.png` è lo sfondo decorativo del Party, con ritaglio responsive, opacità e gradienti; le impostazioni sono in `party.artworkStyle`. Il font Bodoni Moda è incluso tramite il pacchetto npm e `next/font/local`. La licenza originale del font è in `licenses/Bodoni-Moda-OFL.txt`.
+Hero e location hanno crop dedicati in `artworkCrops`. Il file TESTO-HERO è `3_piotta.png`, centrato sotto il payoff: i crop in `heroSupplement` mostrano la riga completa su desktop e più righe leggibili su mobile, usando sempre i pixel originali. `dinner-fobia.png` è lo sfondo della parte introduttiva NŌH Experience, con posizioni responsive e opacità in `dinner.artworkStyle`; il menu mantiene il fondo rosso per leggibilità. `dance-fobia.png` è lo sfondo decorativo del Party, con ritaglio responsive, opacità e gradienti; le impostazioni sono in `party.artworkStyle`. Il font Bodoni Moda è incluso tramite il pacchetto npm e `next/font/local`. La licenza originale del font è in `licenses/Bodoni-Moda-OFL.txt`.
 
 ## Verifica
 
@@ -72,7 +72,7 @@ npx playwright install chromium
 npm test
 ```
 
-In alternativa usare `CHROMIUM_PATH` per indicare un eseguibile Chromium già installato. Verificati build, TypeScript e 13 test: responsive da 320 a 1440 px, CTA, link e messaggi, asset, release, riduzione movimento e metadati. I test non eseguono pagamenti o inviano messaggi WhatsApp.
+In alternativa usare `CHROMIUM_PATH` per indicare un eseguibile Chromium già installato. Verificati build, TypeScript e 15 test: responsive da 320 a 1440 px, CTA, link e messaggi, asset, release, riduzione movimento e metadati. I test non eseguono pagamenti o inviano messaggi WhatsApp.
 
 Dopo il deploy verificare da telefono: hero e immagini, assenza di scroll orizzontale, WhatsApp cena e tavoli, Maps, prezzo corrente nella barra fissa e checkout XCEED. Verificare la social preview dal dominio definitivo.
 

@@ -16,6 +16,7 @@ export function CroppedArtwork({
   className = "",
   priority = false,
   multiply = false,
+  sizes = "(max-width: 700px) 90vw, 1100px",
 }: {
   src: string;
   alt: string;
@@ -23,6 +24,7 @@ export function CroppedArtwork({
   className?: string;
   priority?: boolean;
   multiply?: boolean;
+  sizes?: string;
 }) {
   if (!src) return null;
   const style: CSSProperties = {
@@ -37,7 +39,7 @@ export function CroppedArtwork({
         width={crop.sourceWidth}
         height={crop.sourceHeight}
         priority={priority}
-        sizes="(max-width: 700px) 90vw, 1100px"
+        sizes={sizes}
         style={{
           width: `${(crop.sourceWidth / crop.width) * 100}%`,
           height: "auto",

@@ -1149,3 +1149,148 @@ dialog:not([open]) {
   font-size: clamp(24px, 3.5vw, 40px);
   max-width: 680px;
 }
+.hero-supplement {
+  width: min(80%, 640px);
+  margin: 26px auto 0;
+}
+.hero-supplement img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.dinner-stage {
+  position: relative;
+  isolation: isolate;
+}
+.dinner-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.dinner-backdrop img {
+  object-fit: cover;
+  object-position: var(--dinner-mobile-position);
+  opacity: var(--dinner-artwork-opacity);
+}
+.dinner-backdrop:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--ink) 0%,
+    rgba(16, 14, 13, 0.45) 25%,
+    rgba(16, 14, 13, 0.3) 52%,
+    rgba(16, 14, 13, 0.85) 83%,
+    var(--ink) 100%
+  );
+}
+.dinner.has-dinner-artwork {
+  padding: 0;
+  background: var(--ink);
+  color: var(--paper);
+}
+.has-dinner-artwork .dinner-stage {
+  padding: 76px 6%;
+  min-height: 760px;
+}
+.has-dinner-artwork .dinner-grid {
+  margin-bottom: 0;
+  margin-top: 180px;
+}
+.has-dinner-artwork .dinner-menu {
+  background: var(--red);
+  color: var(--ink);
+  padding: 60px 6% 76px;
+}
+.has-dinner-artwork .dinner-grid .action {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--ink);
+}
+.has-dinner-artwork .dinner-grid .action:hover {
+  background: var(--paper);
+  border-color: var(--paper);
+}
+@media (min-width: 700px) {
+  .has-dinner-artwork .dinner-stage {
+    padding: 100px 7%;
+    min-height: 900px;
+  }
+  .dinner-backdrop {
+    left: 20%;
+  }
+  .dinner-backdrop img {
+    object-position: var(--dinner-desktop-position);
+  }
+  .dinner-backdrop:after {
+    background:
+      linear-gradient(
+        90deg,
+        var(--ink) 0%,
+        rgba(16, 14, 13, 0.6) 35%,
+        rgba(16, 14, 13, 0.08) 100%
+      ),
+      linear-gradient(
+        180deg,
+        var(--ink) 0%,
+        transparent 25%,
+        transparent 75%,
+        var(--ink) 100%
+      );
+  }
+  .has-dinner-artwork .dinner-grid,
+  .has-dinner-artwork .dinner-grid:not(:has(.artwork)) {
+    margin: 160px 0 0;
+    max-width: 600px;
+  }
+  .has-dinner-artwork .dinner-menu {
+    padding: 60px 7% 100px;
+  }
+}
+.hero-supplement {
+  width: min(100%, 900px);
+  margin: 28px auto 0;
+}
+.hero-supplement-desktop {
+  display: none;
+}
+.hero-supplement-mobile {
+  display: grid;
+  gap: 8px;
+  max-width: 380px;
+  margin: auto;
+}
+.hero-supplement-pair {
+  display: grid;
+  grid-template-columns: 221fr 296fr;
+  gap: 12px;
+  align-items: center;
+}
+.hero-supplement-drinks {
+  max-width: 240px;
+  margin: auto;
+}
+@media (min-width: 700px) {
+  .hero-supplement-desktop {
+    display: block;
+  }
+  .hero-supplement-mobile {
+    display: none;
+  }
+  .dinner-backdrop {
+    left: 35%;
+  }
+}
+.dinner.has-dinner-artwork:after {
+  display: none;
+}
+.hero-supplement-conditions {
+  width: 100%;
+  max-width: 280px;
+  margin: auto;
+  display: grid;
+  gap: 5px;
+}

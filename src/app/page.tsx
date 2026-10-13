@@ -6,26 +6,58 @@ import { Tickets } from "@/components/tickets";
 import { Arrow } from "@/components/arrow";
 import { CroppedArtwork } from "@/components/cropped-artwork";
 import { PartnerLogos } from "@/components/partner-logos";
-function Artwork({
-  src,
-  alt,
-  className = "",
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) {
-  return src ? (
-    <div className={`artwork ${className}`}>
-      <Image
-        src={src}
-        alt={alt}
-        width={1024}
-        height={1280}
-        sizes="(max-width: 700px) 100vw, 50vw"
-      />
+function HeroSupplement() {
+  if (!event.artwork.heroText) return null;
+  const crops = event.heroSupplement;
+  return (
+    <div className="hero-supplement" role="img" aria-label={crops.alt}>
+      <div className="hero-supplement-desktop" aria-hidden="true">
+        <CroppedArtwork
+          src={event.artwork.heroText}
+          alt=""
+          crop={crops.desktop}
+          sizes="1080px"
+        />
+      </div>
+      <div className="hero-supplement-mobile" aria-hidden="true">
+        <div className="hero-supplement-pair">
+          <CroppedArtwork
+            src={event.artwork.heroText}
+            alt=""
+            crop={crops.dinner}
+            sizes="1080px"
+          />
+          <CroppedArtwork
+            src={event.artwork.heroText}
+            alt=""
+            crop={crops.party}
+            sizes="1080px"
+          />
+        </div>
+        <CroppedArtwork
+          src={event.artwork.heroText}
+          alt=""
+          crop={crops.drinks}
+          sizes="1080px"
+          className="hero-supplement-drinks"
+        />
+        <div className="hero-supplement-conditions">
+          <CroppedArtwork
+            src={event.artwork.heroText}
+            alt=""
+            crop={crops.dresscode}
+            sizes="1080px"
+          />
+          <CroppedArtwork
+            src={event.artwork.heroText}
+            alt=""
+            crop={crops.prize}
+            sizes="1080px"
+          />
+        </div>
+      </div>
     </div>
-  ) : null;
+  );
 }
 export default function Home() {
   return (
@@ -63,6 +95,7 @@ export default function Home() {
               priority
             />
             <p>{event.payoff}</p>
+            <HeroSupplement />
           </div>
         ) : (
           <div className="hero-title">
@@ -74,6 +107,7 @@ export default function Home() {
               <span aria-hidden="true">✦</span>
             </div>
             <p>{event.payoff}</p>
+            <HeroSupplement />
           </div>
         )}
         {event.artwork.hero && (
@@ -150,58 +184,80 @@ export default function Home() {
         </a>
         <p className="fine-print">{event.copy.dinnerIncludesParty}</p>
       </section>
-      <section id="dinner" className="section dinner">
-        <div className="section-top">
-          <span className="eyebrow">02 / {event.copy.dinnerLabel}</span>
-          <span className="eyebrow">START {event.dinner.start}</span>
-        </div>
-        <div className="dinner-heading">
-          <h2 className="display">
-            NŌH<span>EXPERIENCE</span>
-          </h2>
-          <p>
-            6 PORTATE.
-            <br />6 PAURE.
-          </p>
-        </div>
-        <div className="dinner-grid">
-          <Artwork
-            src={event.artwork.dinner}
-            alt="Manifesto ufficiale NŌH Experience"
-          />
-          <div>
-            <p className="dinner-copy">
-              Un percorso gastronomico costruito intorno a sei differenti fobie.
-              La paura prende posto a tavola.
-            </p>
-            <div className="dinner-price">
-              <strong>€{event.dinner.price}</strong>
-              <span>
-                P.P.
-                <br />
-                VINI ESCLUSI
-              </span>
+      <section
+        id="dinner"
+        className={`section dinner ${event.artwork.dinner ? "has-dinner-artwork" : ""}`}
+        style={
+          {
+            "--dinner-desktop-position":
+              event.dinner.artworkStyle.desktopPosition,
+            "--dinner-mobile-position":
+              event.dinner.artworkStyle.mobilePosition,
+            "--dinner-artwork-opacity": event.dinner.artworkStyle.opacity,
+          } as CSSProperties
+        }
+      >
+        <div className="dinner-stage">
+          {event.artwork.dinner && (
+            <div className="dinner-backdrop" aria-hidden="true">
+              <Image
+                src={event.artwork.dinner}
+                alt=""
+                fill
+                sizes="(max-width: 700px) 100vw, 75vw"
+              />
             </div>
-            <p className="fine-print">{event.copy.dinnerIncludesParty}</p>
-            <Action href={event.dinnerUrl} className="dark">
-              PRENOTA LA DINNER EXPERIENCE
-            </Action>
+          )}
+          <div className="section-top">
+            <span className="eyebrow">02 / {event.copy.dinnerLabel}</span>
+            <span className="eyebrow">START {event.dinner.start}</span>
+          </div>
+          <div className="dinner-heading">
+            <h2 className="display">
+              NŌH<span>EXPERIENCE</span>
+            </h2>
+            <p>
+              6 PORTATE.
+              <br />6 PAURE.
+            </p>
+          </div>
+          <div className="dinner-grid">
+            <div>
+              <p className="dinner-copy">
+                Un percorso gastronomico costruito intorno a sei differenti
+                fobie. La paura prende posto a tavola.
+              </p>
+              <div className="dinner-price">
+                <strong>€{event.dinner.price}</strong>
+                <span>
+                  P.P.
+                  <br />
+                  VINI ESCLUSI
+                </span>
+              </div>
+              <p className="fine-print">{event.copy.dinnerIncludesParty}</p>
+              <Action href={event.dinnerUrl} className="dark">
+                PRENOTA LA DINNER EXPERIENCE
+              </Action>
+            </div>
           </div>
         </div>
-        <div className="menu-top">
-          <span className="eyebrow">IL MENU / SEI ATTI</span>
-          <span aria-hidden="true">✦</span>
-        </div>
-        <div className="menu">
-          {event.dinner.menu.map((item, i) => (
-            <div className="menu-item" key={item.fear}>
-              <span className="menu-number">0{i + 1}</span>
-              <div>
-                <h3>{item.fear}</h3>
-                <p>{item.dish}</p>
+        <div className="dinner-menu">
+          <div className="menu-top">
+            <span className="eyebrow">IL MENU / SEI ATTI</span>
+            <span aria-hidden="true">✦</span>
+          </div>
+          <div className="menu">
+            {event.dinner.menu.map((item, i) => (
+              <div className="menu-item" key={item.fear}>
+                <span className="menu-number">0{i + 1}</span>
+                <div>
+                  <h3>{item.fear}</h3>
+                  <p>{item.dish}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
       <section
