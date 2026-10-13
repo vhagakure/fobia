@@ -313,6 +313,10 @@ export default function Home() {
               {event.copy.partyIntro}
             </p>
             <p>{event.copy.partySummary.toUpperCase()}</p>
+            <div className="party-lineup">
+              <p className="eyebrow">{event.copy.partyLineupLabel}</p>
+              <p className="party-lineup-announcement">{event.copy.partyLineupAnnouncement}</p>
+            </div>
             <Action href={event.xceedUrl}>ACQUISTA IL TUO TICKET</Action>
           </div>
         </div>

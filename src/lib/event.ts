@@ -180,6 +180,8 @@ export const event = {
     partyFormat: "AFTER DINNER PARTY",
     partyIntro: "Dalle 23:30, la paura cambia ritmo.",
     partySummary: "Dj Set & Club Dancefloor",
+    partyLineupLabel: "LINE UP PARTY",
+    partyLineupAnnouncement: "TBA",
     dinnerIncludesParty:
       "La partecipazione alla cena è su prenotazione e comprende l'accesso al party.",
   },

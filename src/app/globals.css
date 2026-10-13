@@ -1467,3 +1467,7 @@ dialog:not([open]) {
 .dinner-closing { margin-top: 20px; font-weight: 700; letter-spacing: .04em; color: var(--red); }
 
 .experience-music { display: block; margin-bottom: 10px; font-size: 15px; line-height: 1.5; }
+
+.party-lineup { margin-top: 22px; }
+.party-lineup .eyebrow { color: var(--paper); }
+.party-lineup-announcement { margin-top: 6px; font: 900 34px/1 var(--serif); color: var(--paper); }
