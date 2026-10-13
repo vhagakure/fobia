@@ -313,7 +313,7 @@ export default function Home() {
               {event.copy.partyIntro}
             </p>
             <p>{event.copy.partySummary.toUpperCase()}</p>
-            <Action href={event.xceedUrl}>ACQUISTA IL TUO PASS</Action>
+            <Action href={event.xceedUrl}>ACQUISTA IL TUO TICKET</Action>
           </div>
         </div>
       </section>
