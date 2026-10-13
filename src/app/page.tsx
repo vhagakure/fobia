@@ -72,7 +72,15 @@ export default function Home() {
         <a href="#" className="wordmark" aria-label="FOBIA, inizio pagina">
           F / P
         </a>
-        <span>{event.date}</span>
+        <div className="header-date">
+          <CroppedArtwork
+            src={event.artwork.headerDate}
+            alt={event.date}
+            crop={event.artworkCrops.headerDate}
+            sizes="(max-width: 699px) 250px, 320px"
+            priority
+          />
+        </div>
         <a href="#tickets">
           ENTER FOBIA <Arrow />
         </a>

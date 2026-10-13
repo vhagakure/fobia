@@ -27,6 +27,7 @@ export const event = {
   // Paths to original files only. Leave empty until supplied; never replace logos with redraws.
   artwork: {
     hero: "/artwork/hero.png",
+    headerDate: "/artwork/date.png",
     heroText: "/artwork/3_piotta.png",
     dinner: "/artwork/dinner-fobia.png",
     party: "/artwork/dance-fobia.png",
@@ -136,6 +137,14 @@ export const event = {
     },
   ],
   artworkCrops: {
+    headerDate: {
+      sourceWidth: 1080,
+      sourceHeight: 1350,
+      x: 222,
+      y: 597,
+      width: 636,
+      height: 154,
+    },
     hero: {
       sourceWidth: 1080,
       sourceHeight: 1350,

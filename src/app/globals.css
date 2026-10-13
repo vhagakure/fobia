@@ -1294,3 +1294,171 @@ dialog:not([open]) {
   display: grid;
   gap: 5px;
 }
+.site-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 10px;
+}
+.site-header > a:first-child {
+  justify-self: start;
+}
+.site-header > a:last-child {
+  justify-self: end;
+}
+.header-date {
+  width: clamp(110px, 36vw, 180px);
+}
+@media (max-width: 699px) {
+  .partners-top {
+    padding: 16px 5%;
+  }
+  .site-header {
+    padding: 10px 5%;
+    gap: 8px;
+  }
+  .site-header > a:last-child {
+    font-size: 10px;
+  }
+  .section {
+    padding: 48px 6%;
+  }
+  .section-top {
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+  }
+  .intro {
+    padding-top: 52px;
+    padding-bottom: 48px;
+  }
+  .intro h2 {
+    margin-top: 24px;
+  }
+  .intro-location {
+    margin-top: 30px;
+  }
+  .hero {
+    padding-bottom: 34px;
+  }
+  .hero-artwork {
+    margin: 24px auto;
+  }
+  .hero-artwork > p {
+    margin-top: 20px;
+  }
+  .hero-supplement {
+    margin-top: 20px;
+  }
+  .hero-bottom {
+    gap: 18px;
+  }
+  .hero-actions {
+    gap: 8px;
+  }
+  .hero-foot {
+    margin-top: 20px;
+    padding-top: 12px;
+  }
+  .experience-row {
+    padding: 24px 0;
+    gap: 14px;
+  }
+  .fine-print {
+    margin-top: 18px;
+  }
+  .has-dinner-artwork .dinner-stage {
+    padding: 48px 6%;
+    min-height: 680px;
+  }
+  .has-dinner-artwork .dinner-grid {
+    margin-top: 120px;
+  }
+  .dinner-heading > p {
+    margin-top: 24px;
+  }
+  .dinner-price {
+    margin: 22px 0;
+  }
+  .has-dinner-artwork .dinner-menu {
+    padding: 36px 6% 48px;
+  }
+  .menu-item {
+    padding: 20px 0;
+  }
+  .party.has-party-artwork {
+    min-height: 720px;
+  }
+  .has-party-artwork .party-grid {
+    margin-top: 210px;
+  }
+  .party-copy {
+    margin-bottom: 18px;
+  }
+  .ticket-progression {
+    margin: 26px 0 32px;
+  }
+  .release {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+  .release.current {
+    padding: 24px 18px;
+  }
+  .table-list {
+    margin-top: 30px;
+  }
+  .table-package {
+    padding: 24px 0 30px;
+  }
+  .table-package h3 {
+    margin: 20px 0;
+  }
+  .table-spend {
+    margin: 20px 0;
+  }
+  .location-bottom {
+    margin-top: 26px;
+    gap: 22px;
+  }
+  .finale h2 {
+    margin: 30px 0;
+  }
+  .finale > p {
+    margin-top: 28px;
+  }
+  .production-credits {
+    padding: 30px 6% 34px;
+  }
+  .production-credits h2 {
+    margin-bottom: 24px;
+  }
+}
+@media (min-width: 700px) {
+  .section {
+    padding-top: 84px;
+    padding-bottom: 84px;
+  }
+  .intro {
+    padding-top: 84px;
+    padding-bottom: 84px;
+  }
+  .has-dinner-artwork .dinner-stage {
+    padding-top: 84px;
+    padding-bottom: 84px;
+  }
+  .has-dinner-artwork .dinner-menu {
+    padding-top: 52px;
+    padding-bottom: 84px;
+  }
+  .hero-artwork {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+.header-date {
+  width: clamp(100px, 32vw, 180px);
+}
+@media (max-width: 360px) {
+  .site-header > a:last-child .arrow-icon {
+    display: none;
+  }
+}

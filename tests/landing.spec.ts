@@ -272,3 +272,20 @@ test("dinner artwork loads behind content while the six-course menu stays readab
     "https://wa.me/393468022848",
   );
 });
+
+test("header uses the centered original date artwork", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/", { waitUntil: "networkidle" });
+  const date = page.locator(".header-date");
+  await expect(date.getByRole("img")).toHaveAttribute("alt", event.date);
+  await expect
+    .poll(() =>
+      date
+        .locator("img")
+        .evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0),
+    )
+    .toBe(true);
+  const box = (await date.boundingBox())!;
+  expect(Math.abs(box.x + box.width / 2 - 195)).toBeLessThan(2);
+  await expect(page.locator(".site-header > span")).toHaveCount(0);
+});

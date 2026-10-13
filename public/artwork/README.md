@@ -6,3 +6,5 @@ La fascia loghi-partner.png è conservata come asset precedente ma non è usata.
 
 TESTO-HERO: 3_piotta.png (1080×1350), ritagli heroSupplement per desktop/mobile.
 DINNER-FOBIA: dinner-fobia.png (941×1672), sfondo introduttivo NŌH Experience; ritaglio e opacità in dinner.artworkStyle.
+
+DATE: date.png (1080×1350), ritaglio centrale in artworkCrops.headerDate, mostrato prima della hero.
