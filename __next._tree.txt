@@ -1,4 +1,4 @@
-:HL["/fobia/_next/static/chunks/364l-za6031gz.css","style"]
+:HL["/fobia/_next/static/chunks/0z6ps8c1alz3d.css","style"]
 :HL["/fobia/_next/static/media/bodoni_moda_latin_900_normal-s.p.3e7478h8qagkd.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"LYdNiibG-cqeCzbLpv_EN","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"lxvcLXYmSkZwXDXHYgKO9","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
